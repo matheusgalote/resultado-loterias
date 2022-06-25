@@ -8,13 +8,10 @@ const App = () => {
     const [dados, setDados] = React.useState(null);
     const [game, setGame] = React.useState('megasena');
     const [concurso, setConcurso] = React.useState(null);
-
-
+    const res = React.useRef();
 
     async function getConcurso(game) {
         const verifica = concurso ? concurso : '';
-
-        console.log(verifica)
 
         const resp = await fetch(`https://servicebus2.caixa.gov.br/portaldeloterias/api/${game}/${verifica}`);
         const json = await resp.json();
